@@ -6,8 +6,7 @@ const admin_router = require('./router/admin_router.js')
 const OG_router = require('./router/OG_router.js')
 const getpost = require('./router/Ul.router.js')
 const owner = require('./router/owner_router.js')
-// const path = require('path');
-
+const path = require('path');
 
 
 const port = 5001;
@@ -32,10 +31,10 @@ app.use('/api', OG_router)
 app.use('/api', getpost)
 app.use('/api', owner)
 
-// app.use(express.static(path.join(__dirname, "../frontend/vite-project/dist")));
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../frontend/vite-project/dist/index.html"));
-// });
+app.use(express.static(path.join(__dirname, "../frontend/vite-project/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/vite-project/dist/index.html"));
+});
 
 dbconnection().then(() => {
     app.listen(port, () => {
