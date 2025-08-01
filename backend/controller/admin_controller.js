@@ -6,6 +6,7 @@ const otpGenerate = require('otp-generator')
 const jwt = require('jsonwebtoken')
 const usermodel = require('../model/user_model.js')
 const nodemailer = require("nodemailer");
+const cloudinary = require('../utils/cloudinary.js')
 
  
 require('dotenv').config()
@@ -279,11 +280,22 @@ try {
     return res.status(404).json({ message: "select images" })
   }
 
+   const base64Images = image;
+
+    const uploadPromises = base64Images.map((base64) =>
+      cloudinary.uploader.upload(base64, {
+        folder: 'multi-images-base64',
+      })
+    );
+
+    const uploadResults = await Promise.all(uploadPromises);
+    const urls = uploadResults.map((result) => result.secure_url);
+
   const postData = await post_model.create({ author: adminuser._id,
                                              name:name,
                                              description: description,
                                              price:price,
-                                             image: image,
+                                             image: urls,
                                              Eventcategory: Eventcategory,
                                              category: adminuser.category,
                                              Landmark: Landmark,

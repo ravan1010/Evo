@@ -7,7 +7,7 @@ router.route('/owner/log').post(ownersignup)
 router.route('/owner/verify').post(ownersignupOTPverify)
 
 router.route('/owner/image').post(ownertoken, imageCreate)
-router.route('/owner/getdata').get(ownertoken, getdata)
+router.route('/owner/getdata').get(getdata)
 router.route('/owner/delete/:id').delete(ownertoken, imagedelete)
 
 

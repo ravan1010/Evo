@@ -143,7 +143,7 @@ const Home = () => {
         </div>
       
     </div>
-  
+        
       <div className='w-screen h-60 mt-2.5 my-auto bg-black border-2 py-auto'>
           <ImageSliderforAds 
           images={image} 

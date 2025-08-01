@@ -123,7 +123,7 @@ const AdminAddress = () => {
                                 <option value="">select</option>
                                 <option value="adminlandmark">events in your landmark</option>
                                 <option value="clientslandmark">events in clients landmark</option>
-                                <option value="Bothlandmark">Both</option>                                
+                                <option value="bothlandmark">Both</option>                                
                             </select>
 
                              <div  className="w-fit px-9 rounded-3xl py-1.5 border-1 mt-4 h-10">

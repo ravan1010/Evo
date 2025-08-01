@@ -88,11 +88,11 @@ const Profile = () => {
         {
         admin ? 
         <>
-          <Link to={`/${toadmin}/dashboard`} className='block'>admin</Link>
+          <Link to={`/${toadmin}/dashboard`} className='block'>partner</Link>
         </>
         :
         <>
-          <Link to={'/admin'}>admin</Link>
+          <Link to={'/admin'}>partner</Link>
         </>
       }
 
