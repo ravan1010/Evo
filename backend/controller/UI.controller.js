@@ -49,6 +49,12 @@ const search = async(req, res) => {
     }
 }
 
+const explore = async(req, res) => {
+    console.log('explore')
+    const exploreData = await post_model.find() 
+    res.json(exploreData)
+}
+
 const searchResult = async(req, res) => {
     try {
         const name = req.query.name?.trim();
@@ -412,6 +418,7 @@ module.exports = {productQuaryname,
                   booked,
                   eventpostdataforbook,
                   eventAvailabledatesandcategory,
+                  explore
                 }
 
 

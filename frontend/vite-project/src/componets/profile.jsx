@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../login/logout';
 import ADMINMainauth from '../admin/auth/adminMainauth';
-import Navbar from './navbar';
+import Navbar from './Navbar';
 import useAuthCheck from '../signup/auth/atokenauth';
 
 
@@ -49,7 +49,7 @@ const Profile = () => {
     <>
     <Navbar />
     <div className='mt-5 lg:mt-20 lg:hidden'>
-      <h1 className='font-bold text-2xl border-b-2 mb-5'>No : {number}</h1>
+      <h1 className='font-bold text-2xl border-b-2 mb-5'>{number}</h1>
       <div className='px-5 flex flex-col'>
       <Link to={'/address-list'}>Address list</Link>
 
@@ -95,6 +95,8 @@ const Profile = () => {
           <Link to={'/admin'}>partner</Link>
         </>
       }
+    <Link to='/booked'>Booked</Link>
+      
 
       </div>
     </div>

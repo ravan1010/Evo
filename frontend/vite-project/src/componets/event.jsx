@@ -40,7 +40,6 @@ function EventPage() {
 
   return (
     <div>
-      <Search />
 
     {
         <>

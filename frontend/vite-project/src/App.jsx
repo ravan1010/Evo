@@ -54,6 +54,7 @@ import Bookedlist from './componets/bookedlist';
 import Ownerlog from './owner/ownerlog';
 import Ownerverify from './owner/ownerverify';
 import Ownerdashboard from './owner/ownerdashboard';
+import Explore from './componets/Explore';
 
 
 function App() {
@@ -184,6 +185,9 @@ function App() {
          <Route path='/' element={
                   <Home /> 
           } />
+        <Route path='/explore' element={
+          <Explore />
+        }/>
          <Route path='/events' element={
                 <CategoryPage />
          } />
