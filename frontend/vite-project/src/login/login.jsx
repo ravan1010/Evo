@@ -47,10 +47,10 @@ const Login = () => {
                 <h2 className="font-bold text-3xl mt-10"  >Login</h2>
                     <form action="post" className="items-center p-2 pb-0.5" onSubmit={handleSubmit} >
                         <input 
-                        type='tel'
+                        type='text'
                         name='login'
                         placeholder='name'
-                        autoComplete="tel"
+                        autoComplete='on'
                         minLength={2}
                         maxLength={25}
                         value={login}

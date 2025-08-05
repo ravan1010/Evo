@@ -48,7 +48,7 @@ const Profile = () => {
   return (
     <>
     <Navbar />
-    <div className='mt-5 lg:mt-20 lg:hidden'>
+    <div className='mt-5 lg:mt-20'>
       <h1 className='font-bold text-2xl border-b-2 mb-5'>{number}</h1>
       <div className='px-5 flex flex-col'>
       <Link to={'/address-list'}>Address list</Link>

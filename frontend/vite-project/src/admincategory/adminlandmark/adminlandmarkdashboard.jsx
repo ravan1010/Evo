@@ -2,6 +2,9 @@ import axios from 'axios'
 import { useState } from 'react';
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import Footer from '../../componets/Footer';
+
+import { ArrowLeft , Calendar, MessageSquare, User, BadgePlus, StickyNote,} from 'lucide-react';
 
 const Adminlandmarkdashboard = () => {
 
@@ -37,39 +40,72 @@ const Adminlandmarkdashboard = () => {
 
 
   return (
-    <div className='w-screen'>
-      <div className=' flex justify-center'>
-          <div className=' m-4 mt-5 flex flex-col '>
-            <div className='flex justify-center'>
-              <Link className='font-bold' to={'/'}>Evo10</Link>
+    <>
+    <div className="bg-gray-100 min-h-screen">
+    <Link to="/" ><ArrowLeft size={30} /></Link>
+        <div className="container mx-auto p-4 sm:p-6 lg:p-8">
+          <h1 className="text-3xl font-bold text-gray-800 mb-6">Evo10 Partner Dashboard</h1>
+          
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="bg-white p-6 rounded-lg shadow">
+              <div className="flex items-center">
+                <div className="p-3 rounded-full bg-blue-100 text-black">
+                  <BadgePlus size={24} />
+                </div>
+                <div className="ml-4">
+              <Link to='/adminlandmark/productcreate' className=' border-2 mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-2xl'>Create Event</Link>
+                </div>
+              </div>
             </div>
-            <div className='flex justify-center'>
-              <h1 className='text-4xl font-bold'>Admin Dashboard</h1>
+            <div className="bg-white p-6 rounded-lg shadow">
+              <div className="flex items-center">
+                <div className="p-3 rounded-full bg-blue-100 text-black">
+                  <StickyNote size={24} />
+                </div>
+                <div className="ml-4">
+                  <p className="text-sm text-gray-500">Posts</p>
+                  <p className="text-xl font-bold text-black-600">{productlist}</p>
+                </div>
+              </div>
             </div>
-            <div className='flex justify-center'>
-              <h1 className='text-2xl'>category</h1>
+            <div className="bg-white p-6 rounded-lg shadow">
+              <div className="flex items-center">
+                <div className="p-3 rounded-full bg-blue-100 text-blue-600">
+                  <Calendar size={24} />
+                </div>
+                <div className="ml-4">
+                  <Link to={'/admin/setdate'} className='border-2 mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-2xl'>Set date</Link>
+                </div>
+              </div>
             </div>
-            <div className='flex justify-center'>
-              <h1 className=''>Adminlandmark</h1>
+            <div className="bg-white p-6 rounded-lg shadow">
+              <div className="flex items-center">
+                <div className="p-3 rounded-full bg-green-100 text-green-600">
+                  <MessageSquare size={24} />
+                </div>
+                <div className="ml-4">
+                  <Link to={'/booked-list'} className='border-2 mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-2xl'>bookings</Link>
+                </div>
+              </div>
             </div>
-            <hr />
-            <div className='flex justify-center mt-4'>
-              <Link to='/adminlandmark/productcreate' className=' border-2 mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-2xl'>Create product</Link>
-              <Link to='' className='border-2 mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-2xl'>{productlist} Products</Link>
-            </div>
-            <div className='flex justify-center mt-4'>
-              <Link to={'/admin/setdate'} className='border-2 mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-2xl'>Set date</Link>
-              <Link to={'/booked-list'} className='border-2 mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-2xl'>booked-list</Link>
+             
+             <div className="bg-white p-6 rounded-lg shadow">
+              <div className="flex items-center">
+                <div className="p-3 rounded-full bg-indigo-100 text-indigo-600">
+                  <User size={24} />
+                </div>
+                <div className="ml-4">
+                  <p className="text-sm text-gray-500">Account Status</p>
+                  <p className="text-xl font-bold text-green-600">Verified</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <hr />
-      <div className='w-full h-fit flex justify-center bg-amber-50 '>
-        <div className='flex flex-col'>
-      </div>
-      </div>
-      
-        <div className='w-full mt-10 p-5 flex-col hidden lg:block md:block' >
+
+          {/*event posts*/}
+  
+           <div className='w-full mt-10 p-5 flex-col hidden lg:block md:block' >
           {
            Array.isArray(post) && post.map((item, ids) => (
             <div key={ids} className='border p-2 m-2 flex w-full h-25'>
@@ -95,6 +131,7 @@ const Adminlandmarkdashboard = () => {
            ))
           }   
         </div>
+
          <div className='w-full mt-2 flex p-5 flex-col lg:hidden md:hidden ' >
           {
            Array.isArray(post) && post.map((item, ids) => (
@@ -116,13 +153,12 @@ const Adminlandmarkdashboard = () => {
            ))
           }  
         </div>
-
-      
-               
-            
-        
-      
-  </div>
+          <Footer />
+          {/* Recent Bookings Table */}
+          
+        </div>
+      </div>
+  </>
   )
 }
 

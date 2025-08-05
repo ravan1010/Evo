@@ -390,6 +390,8 @@ const Toadmin = async (req, res, next) => {
       res.json(admin.category)
     }else if(admin.category === "clientslandmark"){
       res.json(admin.category)
+    }else if(admin.category === "bothlandmark" || admin.category === "Bothlandmark"){
+      res.json(admin.category)
     }
     
   } catch (error) {

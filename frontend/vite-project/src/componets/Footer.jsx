@@ -30,7 +30,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Follow Us</h3>
             <div className='flex flex-col'> 
               <a href="#" className="text-gray-400 hover:text-white">Facebook</a>
-              <a href="#" className="text-gray-400 hover:text-white">Instagram</a>
+              <a href="https://www.instagram.com/_evo10__/?igsh=YzJzMWNjdnVwampz#" className="text-gray-400 hover:text-white">Instagram</a>
               <a href="#" className="text-gray-400 hover:text-white">Twitter</a>
             </div>
           </div>
