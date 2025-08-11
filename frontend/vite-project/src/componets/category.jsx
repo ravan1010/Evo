@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import OrganizerCard from './OrganizerCard';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -45,6 +47,7 @@ function CategoryPage() {
 
   return (
     <div>
+      <Navbar />
       
       {loading && <p className='text-3xl fixed font-bold '>Loading...</p>}
       {!loading && post.length === 0 && category && <p>No results found.</p>}
@@ -55,7 +58,7 @@ function CategoryPage() {
                 <OrganizerCard key={organizer._id} organizer={organizer} />                
               ))}
            </div>
-               
+               <Footer />
     </div>
   );
 }

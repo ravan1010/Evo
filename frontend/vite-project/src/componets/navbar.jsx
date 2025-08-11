@@ -24,6 +24,8 @@ const Navbar = () => {
             <NavLink to="/" className={navLinkClasses}>Home</NavLink>
             <NavLink to="/explore" className={navLinkClasses}>Explore</NavLink>
             <NavLink to="/profile" className={navLinkClasses}>Profile</NavLink>
+            <NavLink to="/events?category=adminlandmark"  className={navLinkClasses}>onOwner</NavLink>
+            <NavLink to="/events?category=clientslandmark"   className={navLinkClasses} >onYour</NavLink>
           </div>
           
           <div className="hidden md:block">
@@ -50,6 +52,8 @@ const Navbar = () => {
             <NavLink to="/" className={({isActive}) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700'}`} onClick={() => setIsOpen(false)}>Home</NavLink>
             <NavLink to="/explore" className={({isActive}) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700'}`} onClick={() => setIsOpen(false)}>Explore</NavLink>
             <NavLink to="/Profile" className={({isActive}) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700'}`} onClick={() => setIsOpen(false)}>Profile</NavLink>
+            <NavLink to="/events?category=adminlandmark"  className={({isActive}) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700'}`} onClick={() => setIsOpen(false)}>onOwner</NavLink>
+            <NavLink to="/events?category=clientslandmark" className={({isActive}) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700'}`} onClick={() => setIsOpen(false)}>onYour</NavLink>
             <Link to="/login" className="block w-full text-left mt-2" onClick={() => setIsOpen(false)}>
               <button className="w-full bg-indigo-600 text-white px-4 py-2 rounded-md font-semibold">Login</button>
             </Link>

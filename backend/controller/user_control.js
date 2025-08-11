@@ -7,6 +7,8 @@ const express = require('express')
 const addressmodel = require('../model/address_model.js')
 const nodemailer = require("nodemailer");
 
+const Review = require('../model/reviewSchema.js');
+
 require('dotenv').config()
 
 
@@ -28,7 +30,7 @@ const signup = async (req, res, next) => {
 try{ 
 
     if(req.body.number){
-        const  number  = req.body.number
+        const number  = req.body.number
         console.log(req.body.number,"to", number)
             const userNUMExisting = await usermodel.findOne({ number })
             if(userNUMExisting){return res.status(400).json({message:"user already have account"})}
@@ -48,7 +50,7 @@ try{
       from: "ravanten3@gmail.com",
       to: "suhasnayaj@gmail.com",
       subject: "Evo10 OTP Confirmation",
-      text: `` ,
+      text: `Evo10 new user ${number} ` ,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -201,12 +203,43 @@ const logout = async (req, res, next) => {
   }
 }
 
+const reviewANDrating = async (req, res, next) => {
+    try {
+    const { event, rating, comment } = req.body;
+
+    const user = await usermodel.findOne({number: req.Atoken.number})
+
+    console.log(event, rating, comment, user._id)
+
+    const alreadyReviewed = await Review.findOne({
+      userId: user._id,
+      eventId: event
+    });
+
+    if (alreadyReviewed) {
+      return res.status(400).json({ message: "You already reviewed this item" });
+    }
+
+    const review = await Review.create({
+      userId: user._id,
+      eventId: event,
+      rating,
+      comment,
+    });
+
+    res.status(201).json(review);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+
+}
 
 module.exports = {signup, 
                   UserInfo, 
                   logout, 
                   login,
-                  Address
+                  Address,
+                  reviewANDrating
                 }
 
 

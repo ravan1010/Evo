@@ -70,7 +70,7 @@ router.get('/admincategory', admincat, (req, res) => {
         res.json({categoryclientslandmark: req.cat})
     }
     //
-    else if(req.cat.categoryid === "Bothlandmark"){
+    else if(req.cat.categoryid === "Bothlandmark" || req.cat.categoryid === "bothlandmark"){
         res.json({categoryBothlandmark: req.cat})
     }
     else{

@@ -255,39 +255,6 @@ const booking = async(req, res, next) => {
         //user id
         const userId = await usermodel.findOne({number: number})
 
-        console.log(landmark.category, userId.number, admin)
-        if(landmark.category === "adminlandmark"){
-            const book = await book_model.create({
-                userId: userId._id,
-                username: userId.number,
-                event: id,
-                time: time,
-                date: date,
-                mobileNo: mobileNo,
-                paymentMethod: "on hand"
-            })
-            //booked id
-            await book.save()
-            // console.log(book._id)
-            res.status(200).json({id: book._id})
-            const mailOptions = {
-
-            from: "ravanten3@gmail.com",
-            to: "suhasnayaj@gmail.com",
-            subject: "User, admin and booking details",
-            text: `user details : ${userId} - booking details : ${book} -
-                    admin details : ${admin} - event post details : ${landmark}  ` 
-            };
-
-            transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                console.error("Email error:", error);
-            } else {
-                console.log("Email sent: " + info.response);
-            } 
-            });
-
-        }else if(landmark.category === "clientslandmark"){
             const book = await book_model.create({
                 userId: userId._id,
                 username: userId.number,
@@ -300,17 +267,28 @@ const booking = async(req, res, next) => {
 
             })
             await book.save()
-            // console.log(book._id)
+            
             res.status(200).json({id: book._id})
             const mailOptions = {
 
             from: "ravanten3@gmail.com",
             to: "suhasnayaj@gmail.com",
             subject: "User, admin and booking details",
-            text: `user details : ${userId} - booking details : ${book} -
-                    admin details : ${admin} - event post details : ${landmark}  ` 
+            html: `
+            <h1> client details </h1> 
+             <p> client Name = ${userId.number} </p>
+             <p> client city or town = ${userId.CorT} </p> 
+            <h1> booking details </h1> 
+             <p> date = ${book.date} </p>
+             <p> time = ${book.time} </p>
+            <h1> admin details </h1>
+             <p> event partner conpany name = ${admin.companyName} </p>
+             <p> event partner name = ${admin.number} </p>
+            <h1> event post details </h1>
+             <p> event name = ${landmark.name} </p>
+             <p> event price = ${landmark.price} </p>  ` 
             };
-
+            
             transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
                 console.error("Email error:", error);
@@ -319,7 +297,7 @@ const booking = async(req, res, next) => {
             } 
             });
 
-        }
+        
     } catch (err) {
         res.status(500).json({ message: err.message });
     }

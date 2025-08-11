@@ -1,5 +1,5 @@
 const express = require('express')
-const { signup, verify, setpassword, UserInfo, logout, login, resetpass, resetverify, resetsetpassword, Address } = require('../controller/user_control.js')
+const { signup, verify, setpassword, UserInfo, logout, login, resetpass, resetverify, resetsetpassword, Address, reviewANDrating } = require('../controller/user_control.js')
 const { signgu, signpst, signat, resetRg, resetrepst, authLocation,  } = require('../middleware/OGauth.js')
 const router = express.Router()
 
@@ -12,8 +12,9 @@ router.route('/login').post(login)
 router.route('/logout').get(signat, authLocation, logout)
 
 
-//auth check for frontend
+router.route('/reviews').post(signat, reviewANDrating)
 
+//auth check for frontend
 
 router.get('/token', signat, async(req, res) => {
     res.json({user: req.Atoken})

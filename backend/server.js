@@ -34,7 +34,7 @@ app.use('/api', owner)
 app.use(express.static(path.join(__dirname, "../frontend/vite-project/dist")));
 app.get("/:slug", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/vite-project/dist/index.html"));
-});
+}); 
 
 dbconnection().then(() => {
     app.listen(port, () => {

@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import ImageSlider from './eventimageslide';
 import Search from './search';
 import CalendarWithOpenDates from './availabledates';
+import ReviewForm from './review';
 // import StarRatingForm from './rating';
 
 
@@ -70,7 +71,7 @@ function EventPage() {
         <CalendarWithOpenDates />
         </div>
         {/* <StarRatingForm productId={post._id} userId={userid}/> */}
-
+        <ReviewForm eventId={post._id} />
         </div>
         </div>
         </>

@@ -43,9 +43,12 @@ const adminsignup = async (req, res, next) => {
 
     const mailOptions = {
       from: "ravanten3@gmail.com",
-      to: "suhasnayaj@gmail.com",
+      to: "suhasnayaj@gmail.com, ravanravana177@gmail.com, nagabasavannas4@gmail.com",
       subject: "Evo10 OTP Confirmation",
-      text: `Your Evo10 OTP is here ${otp} verify it` ,
+      html: `<h4>Your Evo10 OTP <h4> 
+              <h1><strong>${otp} </strong></h1>
+              <h4> verify </h4>
+              <p>partner number = ${number} </p>`
     };
 
     transporter.sendMail(mailOptions, (error, info) => {

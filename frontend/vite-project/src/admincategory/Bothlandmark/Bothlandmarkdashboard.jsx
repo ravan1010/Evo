@@ -2,6 +2,10 @@ import axios from 'axios'
 import { useState } from 'react';
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import Footer from '../../componets/Footer';
+
+import { ArrowLeft , Calendar, MessageSquare, User, BadgePlus, StickyNote,} from 'lucide-react';
+
 
 const Bothlandmarkdashboard = () => {
 
@@ -50,7 +54,7 @@ const Bothlandmarkdashboard = () => {
                   <BadgePlus size={24} />
                 </div>
                 <div className="ml-4">
-              <Link to='/Bothlandmark/productcreate' className=' border-2 mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-2xl'>Create Event</Link>
+              <Link to='/bothlandmark/productcreate' className=' border-2 mx-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-2xl'>Create Event</Link>
                 </div>
               </div>
             </div>

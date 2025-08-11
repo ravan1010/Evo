@@ -2,6 +2,10 @@ import axios from 'axios'
 import { useState } from 'react';
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import Footer from '../../componets/Footer';
+
+import { ArrowLeft , Calendar, MessageSquare, User, BadgePlus, StickyNote,} from 'lucide-react';
+
 
 const Clientslandmarkdashboard = () => {
 

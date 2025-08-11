@@ -9,7 +9,7 @@ const ProtectedRouteBothlandmark = ({ children }) => {
   const { user, checking } = AdmincategoryBothlandmark();
 
   if(checking) return <div>Loading...</div>;
-  if(!user) return <p>404</p>;
+  if(!user) return <p>suhas</p>;
 
   return children;
 };

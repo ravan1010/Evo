@@ -6,9 +6,11 @@ const reviewSchema = new mongoose.Schema({
   eventId : { type: mongoose.Schema.Types.ObjectId, ref: "posts", required: true },
   name: String,
   comment: String,
-  rating: { type: Number, required: true, min: 1, max: 5 },
+  rating: { type: Number, required: true, min: 1, max: 5, default: 1},
   createdAt: { type: Date, default: Date.now },
-});
+},
+  { timestamps: true }
+);
 
 
 module.exports = mongoose.model("review", reviewSchema);
